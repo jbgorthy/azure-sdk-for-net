@@ -10,8 +10,8 @@ using System.Collections.Generic;
 
 namespace Azure.ResourceManager.Network.Models
 {
-    /// <summary> Post request for Delete Bastion Shareable Link By Token endpoint. </summary>
-    public partial class BastionShareableLinkTokenListContent
+    /// <summary> Routing configuration rule collection list result. </summary>
+    internal partial class RoutingRuleCollectionListResult
     {
         /// <summary>
         /// Keeps track of any properties unknown to the library.
@@ -45,22 +45,26 @@ namespace Azure.ResourceManager.Network.Models
         /// </summary>
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
-        /// <summary> Initializes a new instance of <see cref="BastionShareableLinkTokenListContent"/>. </summary>
-        public BastionShareableLinkTokenListContent()
+        /// <summary> Initializes a new instance of <see cref="RoutingRuleCollectionListResult"/>. </summary>
+        internal RoutingRuleCollectionListResult()
         {
-            Tokens = new ChangeTrackingList<string>();
+            Value = new ChangeTrackingList<RoutingRuleCollectionData>();
         }
 
-        /// <summary> Initializes a new instance of <see cref="BastionShareableLinkTokenListContent"/>. </summary>
-        /// <param name="tokens"> List of Bastion Shareable Link Token. </param>
+        /// <summary> Initializes a new instance of <see cref="RoutingRuleCollectionListResult"/>. </summary>
+        /// <param name="value"> A list of network manager routing configuration rule collections. </param>
+        /// <param name="nextLink"> Gets the URL to get the next set of results. </param>
         /// <param name="serializedAdditionalRawData"> Keeps track of any properties unknown to the library. </param>
-        internal BastionShareableLinkTokenListContent(IList<string> tokens, IDictionary<string, BinaryData> serializedAdditionalRawData)
+        internal RoutingRuleCollectionListResult(IReadOnlyList<RoutingRuleCollectionData> value, string nextLink, IDictionary<string, BinaryData> serializedAdditionalRawData)
         {
-            Tokens = tokens;
+            Value = value;
+            NextLink = nextLink;
             _serializedAdditionalRawData = serializedAdditionalRawData;
         }
 
-        /// <summary> List of Bastion Shareable Link Token. </summary>
-        public IList<string> Tokens { get; }
+        /// <summary> A list of network manager routing configuration rule collections. </summary>
+        public IReadOnlyList<RoutingRuleCollectionData> Value { get; }
+        /// <summary> Gets the URL to get the next set of results. </summary>
+        public string NextLink { get; }
     }
 }

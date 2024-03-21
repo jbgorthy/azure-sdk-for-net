@@ -49,11 +49,6 @@ namespace Azure.ResourceManager.Network
             }
             writer.WritePropertyName("properties"u8);
             writer.WriteStartObject();
-            if (options.Format != "W" && Optional.IsDefined(Size))
-            {
-                writer.WritePropertyName("size"u8);
-                writer.WriteStringValue(Size);
-            }
             if (Optional.IsDefined(Priority))
             {
                 writer.WritePropertyName("priority"u8);
@@ -117,7 +112,6 @@ namespace Azure.ResourceManager.Network
             ResourceIdentifier id = default;
             string name = default;
             ResourceType? type = default;
-            string size = default;
             int? priority = default;
             IList<FirewallPolicyRuleCollectionInfo> ruleCollections = default;
             NetworkProvisioningState? provisioningState = default;
@@ -166,11 +160,6 @@ namespace Azure.ResourceManager.Network
                     }
                     foreach (var property0 in property.Value.EnumerateObject())
                     {
-                        if (property0.NameEquals("size"u8))
-                        {
-                            size = property0.Value.GetString();
-                            continue;
-                        }
                         if (property0.NameEquals("priority"u8))
                         {
                             if (property0.Value.ValueKind == JsonValueKind.Null)
@@ -218,7 +207,6 @@ namespace Azure.ResourceManager.Network
                 type,
                 serializedAdditionalRawData,
                 etag,
-                size,
                 priority,
                 ruleCollections ?? new ChangeTrackingList<FirewallPolicyRuleCollectionInfo>(),
                 provisioningState);

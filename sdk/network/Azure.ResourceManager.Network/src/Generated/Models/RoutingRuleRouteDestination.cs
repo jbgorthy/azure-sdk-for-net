@@ -10,8 +10,8 @@ using System.Collections.Generic;
 
 namespace Azure.ResourceManager.Network.Models
 {
-    /// <summary> The BastionHostIPRule. </summary>
-    public partial class BastionHostIPRule
+    /// <summary> Route destination. </summary>
+    public partial class RoutingRuleRouteDestination
     {
         /// <summary>
         /// Keeps track of any properties unknown to the library.
@@ -45,21 +45,37 @@ namespace Azure.ResourceManager.Network.Models
         /// </summary>
         private IDictionary<string, BinaryData> _serializedAdditionalRawData;
 
-        /// <summary> Initializes a new instance of <see cref="BastionHostIPRule"/>. </summary>
-        public BastionHostIPRule()
+        /// <summary> Initializes a new instance of <see cref="RoutingRuleRouteDestination"/>. </summary>
+        /// <param name="destinationType"> Destination type. </param>
+        /// <param name="destinationAddress"> Destination address. </param>
+        /// <exception cref="ArgumentNullException"> <paramref name="destinationAddress"/> is null. </exception>
+        public RoutingRuleRouteDestination(RoutingRuleDestinationType destinationType, string destinationAddress)
         {
+            Argument.AssertNotNull(destinationAddress, nameof(destinationAddress));
+
+            DestinationType = destinationType;
+            DestinationAddress = destinationAddress;
         }
 
-        /// <summary> Initializes a new instance of <see cref="BastionHostIPRule"/>. </summary>
-        /// <param name="addressPrefix"> Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed. </param>
+        /// <summary> Initializes a new instance of <see cref="RoutingRuleRouteDestination"/>. </summary>
+        /// <param name="destinationType"> Destination type. </param>
+        /// <param name="destinationAddress"> Destination address. </param>
         /// <param name="serializedAdditionalRawData"> Keeps track of any properties unknown to the library. </param>
-        internal BastionHostIPRule(string addressPrefix, IDictionary<string, BinaryData> serializedAdditionalRawData)
+        internal RoutingRuleRouteDestination(RoutingRuleDestinationType destinationType, string destinationAddress, IDictionary<string, BinaryData> serializedAdditionalRawData)
         {
-            AddressPrefix = addressPrefix;
+            DestinationType = destinationType;
+            DestinationAddress = destinationAddress;
             _serializedAdditionalRawData = serializedAdditionalRawData;
         }
 
-        /// <summary> Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed. </summary>
-        public string AddressPrefix { get; set; }
+        /// <summary> Initializes a new instance of <see cref="RoutingRuleRouteDestination"/> for deserialization. </summary>
+        internal RoutingRuleRouteDestination()
+        {
+        }
+
+        /// <summary> Destination type. </summary>
+        public RoutingRuleDestinationType DestinationType { get; set; }
+        /// <summary> Destination address. </summary>
+        public string DestinationAddress { get; set; }
     }
 }

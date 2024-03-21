@@ -72,11 +72,6 @@ namespace Azure.ResourceManager.Network
             }
             writer.WritePropertyName("properties"u8);
             writer.WriteStartObject();
-            if (options.Format != "W" && Optional.IsDefined(Size))
-            {
-                writer.WritePropertyName("size"u8);
-                writer.WriteStringValue(Size);
-            }
             if (options.Format != "W" && Optional.IsCollectionDefined(RuleCollectionGroups))
             {
                 writer.WritePropertyName("ruleCollectionGroups"u8);
@@ -213,7 +208,6 @@ namespace Azure.ResourceManager.Network
             ResourceType? type = default;
             AzureLocation? location = default;
             IDictionary<string, string> tags = default;
-            string size = default;
             IReadOnlyList<WritableSubResource> ruleCollectionGroups = default;
             NetworkProvisioningState? provisioningState = default;
             WritableSubResource basePolicy = default;
@@ -306,11 +300,6 @@ namespace Azure.ResourceManager.Network
                     }
                     foreach (var property0 in property.Value.EnumerateObject())
                     {
-                        if (property0.NameEquals("size"u8))
-                        {
-                            size = property0.Value.GetString();
-                            continue;
-                        }
                         if (property0.NameEquals("ruleCollectionGroups"u8))
                         {
                             if (property0.Value.ValueKind == JsonValueKind.Null)
@@ -479,7 +468,6 @@ namespace Azure.ResourceManager.Network
                 serializedAdditionalRawData,
                 etag,
                 identity,
-                size,
                 ruleCollectionGroups ?? new ChangeTrackingList<WritableSubResource>(),
                 provisioningState,
                 basePolicy,

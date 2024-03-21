@@ -32,7 +32,7 @@ namespace Azure.ResourceManager.Network
         {
             _pipeline = pipeline ?? throw new ArgumentNullException(nameof(pipeline));
             _endpoint = endpoint ?? new Uri("https://management.azure.com");
-            _apiVersion = apiVersion ?? "2023-09-01";
+            _apiVersion = apiVersion ?? "2023-04-01";
             _userAgent = new TelemetryDetails(GetType().Assembly, applicationId);
         }
 
@@ -61,7 +61,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Creates or updates a network watcher in the specified resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="data"> Parameters that define the network watcher resource. </param>
@@ -93,7 +93,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Creates or updates a network watcher in the specified resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="data"> Parameters that define the network watcher resource. </param>
@@ -145,7 +145,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the specified network watcher by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -176,7 +176,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the specified network watcher by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -227,7 +227,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Deletes the specified network watcher resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -252,7 +252,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Deletes the specified network watcher resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
@@ -301,7 +301,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Updates a network watcher tags. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="networkTagsObject"> Parameters supplied to update network watcher tags. </param>
@@ -332,7 +332,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Updates a network watcher tags. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="networkTagsObject"> Parameters supplied to update network watcher tags. </param>
@@ -382,7 +382,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets all network watchers by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="subscriptionId"/> or <paramref name="resourceGroupName"/> is null. </exception>
@@ -409,7 +409,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets all network watchers by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="subscriptionId"/> or <paramref name="resourceGroupName"/> is null. </exception>
@@ -453,7 +453,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets all network watchers by subscription. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="subscriptionId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="subscriptionId"/> is an empty string, and was expected to be non-empty. </exception>
@@ -478,7 +478,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets all network watchers by subscription. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="subscriptionId"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="subscriptionId"/> is an empty string, and was expected to be non-empty. </exception>
@@ -528,7 +528,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the current network topology by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the representation of topology. </param>
@@ -559,7 +559,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the current network topology by resource group. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the representation of topology. </param>
@@ -615,7 +615,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Verify IP flow from the specified VM to a location given the currently configured NSG rules. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the IP flow to be verified. </param>
@@ -642,7 +642,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Verify IP flow from the specified VM to a location given the currently configured NSG rules. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the IP flow to be verified. </param>
@@ -694,7 +694,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the next hop from the specified VM. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the source and destination endpoint. </param>
@@ -721,7 +721,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the next hop from the specified VM. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the source and destination endpoint. </param>
@@ -773,7 +773,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the configured and effective security group rules on the specified VM. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the VM to check security groups for. </param>
@@ -800,7 +800,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets the configured and effective security group rules on the specified VM. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters that define the VM to check security groups for. </param>
@@ -852,7 +852,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Initiate troubleshooting on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define the resource to troubleshoot. </param>
@@ -879,7 +879,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Initiate troubleshooting on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define the resource to troubleshoot. </param>
@@ -931,7 +931,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Get the last completed troubleshooting result on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define the resource to query the troubleshooting result. </param>
@@ -958,7 +958,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Get the last completed troubleshooting result on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define the resource to query the troubleshooting result. </param>
@@ -1010,7 +1010,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Configures flow log and traffic analytics (optional) on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="flowLogInformation"> Parameters that define the configuration of flow log. </param>
@@ -1037,7 +1037,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Configures flow log and traffic analytics (optional) on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="flowLogInformation"> Parameters that define the configuration of flow log. </param>
@@ -1089,7 +1089,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Queries status of flow log and traffic analytics (optional) on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define a resource to query flow log and traffic analytics (optional) status. </param>
@@ -1116,7 +1116,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Queries status of flow log and traffic analytics (optional) on a specified resource. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that define a resource to query flow log and traffic analytics (optional) status. </param>
@@ -1168,7 +1168,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that determine how the connectivity check will be performed. </param>
@@ -1195,7 +1195,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint including another VM or an arbitrary remote server. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that determine how the connectivity check will be performed. </param>
@@ -1247,7 +1247,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> NOTE: This feature is currently in preview and still being tested for stability. Gets the relative latency score for internet service providers from a specified location to Azure regions. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that determine Azure reachability report configuration. </param>
@@ -1274,7 +1274,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> NOTE: This feature is currently in preview and still being tested for stability. Gets the relative latency score for internet service providers from a specified location to Azure regions. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that determine Azure reachability report configuration. </param>
@@ -1326,7 +1326,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> NOTE: This feature is currently in preview and still being tested for stability. Lists all available internet service providers for a specified Azure region. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that scope the list of available providers. </param>
@@ -1353,7 +1353,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> NOTE: This feature is currently in preview and still being tested for stability. Lists all available internet service providers for a specified Azure region. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the network watcher resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher resource. </param>
         /// <param name="content"> Parameters that scope the list of available providers. </param>
@@ -1405,7 +1405,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets Network Configuration Diagnostic data to help customers understand and debug network behavior. It provides detailed information on what security rules were applied to a specified traffic flow and the result of evaluating these rules. Customers must provide details of a flow like source, destination, protocol, etc. The API returns whether traffic was allowed or denied, the rules evaluated for the specified flow and the evaluation results. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters to get network configuration diagnostic. </param>
@@ -1432,7 +1432,7 @@ namespace Azure.ResourceManager.Network
         }
 
         /// <summary> Gets Network Configuration Diagnostic data to help customers understand and debug network behavior. It provides detailed information on what security rules were applied to a specified traffic flow and the result of evaluating these rules. Customers must provide details of a flow like source, destination, protocol, etc. The API returns whether traffic was allowed or denied, the rules evaluated for the specified flow and the evaluation results. </summary>
-        /// <param name="subscriptionId"> The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. </param>
+        /// <param name="subscriptionId"> The ID of the target subscription. The value must be an UUID. </param>
         /// <param name="resourceGroupName"> The name of the resource group. </param>
         /// <param name="networkWatcherName"> The name of the network watcher. </param>
         /// <param name="content"> Parameters to get network configuration diagnostic. </param>
